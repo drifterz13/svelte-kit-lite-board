@@ -1,5 +1,7 @@
 <script>
-	import '../app.postcss';
+  import '../app.postcss';
 </script>
 
-<slot />
+<div class="p-16 bg-white h-screen w-full">
+  <slot />
+</div>
