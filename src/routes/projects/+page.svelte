@@ -26,13 +26,15 @@
 
 <div class="w-full grid grid-cols-3 gap-5">
   {#each data.projects as project (project.id)}
-    <div class="card w-72 bg-base-100 shadow-xl cursor-pointer">
-      <div class="card-body">
-        <h2 class="card-title">
-          {project.title}
-        </h2>
+    <a href={`/projects/${project.id}`}>
+      <div class="card w-72 bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">
+            {project.title}
+          </h2>
+        </div>
       </div>
-    </div>
+    </a>
   {/each}
 </div>
 
