@@ -31,6 +31,17 @@ export async function getProjects() {
   return prisma.project.findMany();
 }
 
+export async function createTasklist(title, projectId) {
+  return prisma.tasklist.create({
+    data: {
+      title,
+      project: {
+        connect: { id: projectId }
+      }
+    }
+  });
+}
+
 export async function createTask(title, takslistId) {
   return prisma.task.create({
     data: {

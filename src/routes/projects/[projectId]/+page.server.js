@@ -1,5 +1,6 @@
 import {
   createTask,
+  createTasklist,
   getProjectById,
   getTasklistsByProjectId
 } from '$lib/server/db';
@@ -24,5 +25,13 @@ export const actions = {
     const task = await createTask(title, tasklistId);
 
     return { task };
+  },
+  createTasklist: async ({ request }) => {
+    const data = await request.formData();
+    const title = data.get('title');
+    const projectId = parseInt(data.get('projectId'));
+    const tasklist = await createTasklist(title, projectId);
+
+    return { tasklist };
   }
 };

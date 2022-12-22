@@ -1,3 +1,7 @@
+<script>
+  import { enhance } from '$app/forms';
+</script>
+
 <input type="checkbox" id="create-project-modal" class="modal-toggle" />
 <label for="create-project-modal" class="modal cursor-pointer">
   <label class="modal-box relative" for="">
@@ -5,6 +9,7 @@
       class="form-control w-full mx-auto"
       method="POST"
       action="?/createProject"
+      use:enhance
     >
       <label class="label" for="title">
         <span class="label-text">Project Title</span>
