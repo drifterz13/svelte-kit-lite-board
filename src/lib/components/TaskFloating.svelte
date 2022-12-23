@@ -9,13 +9,13 @@
   <div
     class="task-floating bg-base-100 p-5"
     class:--show={task.id}
-    in:fly={{ delay: task.id ? 100 : 0 }}
+    transition:fly
   >
     <a
       href={$page.url.pathname}
       class="btn btn-circle btn-ghost box-border ml-auto grid place-content-center mb-5"
     >
-      <span role="img" aria-label="close button">
+      <span role="img" aria-label="Close">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"

@@ -38,7 +38,7 @@
   {:else}
     <button class="btn btn-ghost gap-2 w-full" on:click={handleClick}>
       Create tasklist
-      <span role="img" aria-label="create tasklist button">
+      <span role="img" aria-label="Create tasklist button">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

@@ -19,7 +19,7 @@
   >
     <span>{tasklist.title}</span>
     <button class="btn btn-square btn-xs" on:click={handleClick}>
-      <span role="img" aria-label="toggle task input button">
+      <span role="img" aria-label="Create task input button">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

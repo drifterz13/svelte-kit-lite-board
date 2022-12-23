@@ -25,7 +25,7 @@
     class="btn btn-circle btn-group btn-ghost btn-sm"
     for="project_menu"
   >
-    <span role="img" aria-label="project menu">
+    <span role="img" aria-label="Project menu">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

@@ -15,7 +15,7 @@
   on:click={() => (show = true)}
   on:keypress
 >
-  <span role="img" aria-label="plus icon">
+  <span role="img" aria-label="Craeate project button">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
