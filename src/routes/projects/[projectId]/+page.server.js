@@ -6,7 +6,9 @@ import {
 } from '$lib/server/db';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export async function load({ params, depends }) {
+  depends('api:tasks');
+
   const projectId = parseInt(params.projectId);
   const [project, tasklists] = await Promise.all([
     getProjectById(projectId),

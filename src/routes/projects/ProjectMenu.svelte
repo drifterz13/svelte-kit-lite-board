@@ -4,7 +4,7 @@
   export let projectId;
 
   async function deleteProject() {
-    const response = await fetch('/projects', {
+    const response = await fetch('/api/projects', {
       method: 'DELETE',
       body: JSON.stringify({ projectId }),
       headers: {
@@ -14,7 +14,7 @@
 
     const data = await response.json();
     if (data.success) {
-      await invalidate('app:projects');
+      await invalidate('api:projects');
     }
   }
 </script>

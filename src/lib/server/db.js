@@ -2,11 +2,22 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+/** Project data */
 export async function createProject(title) {
   return prisma.project.create({
     data: {
       title
     }
+  });
+}
+
+export async function getProjects() {
+  return prisma.project.findMany();
+}
+
+export async function getProjectById(projectId) {
+  return prisma.project.findFirst({
+    where: { id: projectId }
   });
 }
 
@@ -18,9 +29,15 @@ export async function deleteProject(projectId) {
   });
 }
 
-export async function getProjectById(projectId) {
-  return prisma.project.findFirst({
-    where: { id: projectId }
+/** Tasklist data */
+export async function createTasklist(title, projectId) {
+  return prisma.tasklist.create({
+    data: {
+      title,
+      project: {
+        connect: { id: projectId }
+      }
+    }
   });
 }
 
@@ -35,21 +52,7 @@ export async function getTasklistsByProjectId(projectId) {
   });
 }
 
-export async function getProjects() {
-  return prisma.project.findMany();
-}
-
-export async function createTasklist(title, projectId) {
-  return prisma.tasklist.create({
-    data: {
-      title,
-      project: {
-        connect: { id: projectId }
-      }
-    }
-  });
-}
-
+/** Task data */
 export async function createTask(title, takslistId) {
   return prisma.task.create({
     data: {
@@ -57,6 +60,17 @@ export async function createTask(title, takslistId) {
       tasklist: {
         connect: { id: takslistId }
       }
+    }
+  });
+}
+
+export async function deleteTask(taskId) {
+  return prisma.task.delete({
+    where: {
+      id: taskId
+    },
+    include: {
+      tasklist: true
     }
   });
 }
