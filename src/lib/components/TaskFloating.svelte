@@ -1,7 +1,6 @@
 <script>
   import { goto, invalidate } from '$app/navigation';
   import { page } from '$app/stores';
-  import { redirect } from '@sveltejs/kit';
   import { fly } from 'svelte/transition';
 
   export let task;
