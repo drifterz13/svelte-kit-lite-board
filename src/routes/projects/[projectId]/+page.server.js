@@ -13,7 +13,14 @@ export async function load({ params }) {
     getTasklistsByProjectId(projectId)
   ]);
 
-  return { project, tasklists };
+  const tasks = new Map();
+  for (const tasklist of tasklists) {
+    for (const task of tasklist.tasks) {
+      tasks.set(task.id, task);
+    }
+  }
+
+  return { project, tasklists, tasks };
 }
 
 /** @type {import('./$types').Actions} */

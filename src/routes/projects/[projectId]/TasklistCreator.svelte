@@ -1,6 +1,7 @@
 <script>
   import { enhance } from '$app/forms';
   import { autofocus } from '$lib/use/autofocus';
+  import { clickOutside } from '$lib/use/clickOutside';
   import { fly } from 'svelte/transition';
 
   function handleClick(e) {
@@ -20,6 +21,8 @@
       class="form-control h-12 box-border rounded-box"
       in:fly
       use:enhance
+      use:clickOutside
+      on:outclick={() => (creating = false)}
     >
       <input type="hidden" name="projectId" value={projectId} />
       <label for="tasklist" hidden>Tasklist title</label>

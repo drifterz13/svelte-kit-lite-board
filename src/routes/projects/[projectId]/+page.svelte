@@ -1,6 +1,7 @@
 <script>
   import { page } from '$app/stores';
   import TaskFloating from '$lib/components/TaskFloating.svelte';
+  import { onMount } from 'svelte';
   import Tasklist from './Tasklist.svelte';
   import TasklistCreator from './TasklistCreator.svelte';
 
@@ -8,12 +9,15 @@
   export let data;
 
   $: taskId = $page.url.searchParams.get('taskId');
+
+  $: task = taskId && data.tasks.get(parseInt(taskId));
 </script>
 
 <div class="flex gap-5 items-center mb-10">
   <a
     href="/projects"
-    class="link link-primary hover:bg-base-200 w-7 h-7 p-4 rounded-full grid place-content-center"
+    on:click={() => (taskId = null)}
+    class="link hover:bg-base-200 w-7 h-7 p-4 rounded-full grid place-content-center"
   >
     <span role="img" aria-label="go back link">
       <svg
@@ -44,5 +48,5 @@
 </div>
 
 {#if taskId}
-  <TaskFloating {taskId} />
+  <TaskFloating {task} />
 {/if}
