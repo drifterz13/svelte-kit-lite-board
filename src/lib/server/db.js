@@ -10,6 +10,14 @@ export async function createProject(title) {
   });
 }
 
+export async function deleteProject(projectId) {
+  return prisma.project.delete({
+    where: {
+      id: projectId
+    }
+  });
+}
+
 export async function getProjectById(projectId) {
   return prisma.project.findFirst({
     where: { id: projectId }

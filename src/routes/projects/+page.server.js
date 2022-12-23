@@ -12,7 +12,9 @@ export const actions = {
 };
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load() {
+export async function load({ depends }) {
+  depends('app:projects');
+
   return {
     projects: await db.getProjects()
   };
