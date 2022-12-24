@@ -8,7 +8,7 @@
   export let tasklist;
 
   let creating = false;
-  function handleClick(e) {
+  function handleClick() {
     creating = !creating;
   }
 </script>
@@ -64,7 +64,7 @@
           type="text"
           class="input input-bordered w-full"
           placeholder="My task"
-          use:autofocus
+          use:autofocus={tasklist.tasks.length}
         />
       </form>
     </li>

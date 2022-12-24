@@ -32,7 +32,7 @@
       use:enhance
     >
       <label class="label" for="title">
-        <span class="label-text">Project Title</span>
+        <span class="label-text font-semibold">Project Title</span>
       </label>
       <input
         id="title"
