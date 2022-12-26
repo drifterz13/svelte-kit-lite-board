@@ -6,7 +6,12 @@ import {
 } from '$lib/server/db';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params, depends }) {
+export async function load({ params, depends, locals }) {
+  const { userId } = locals.session.data;
+  if (!userId) {
+    throw redirect(302, '/users/login');
+  }
+
   depends('api:tasks');
 
   const projectId = parseInt(params.projectId);

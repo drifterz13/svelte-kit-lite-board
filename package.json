@@ -36,6 +36,9 @@
   "type": "module",
   "dependencies": {
     "@prisma/client": "4.7.1",
-    "daisyui": "^2.45.0"
+    "bcrypt": "^5.1.0",
+    "daisyui": "^2.45.0",
+    "svelte-kit-cookie-session": "^3.3.2",
+    "zod": "^3.20.2"
   }
 }

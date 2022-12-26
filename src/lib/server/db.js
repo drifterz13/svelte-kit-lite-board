@@ -1,6 +1,10 @@
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+/** @type {PrismaClient} prisma */
+let prisma;
+if (!prisma) {
+  prisma = new PrismaClient();
+}
 
 /** Project data */
 export async function createProject(title) {
@@ -71,6 +75,25 @@ export async function deleteTask(taskId) {
     },
     include: {
       tasklist: true
+    }
+  });
+}
+
+/** User data */
+export async function createUser(username, email, passwordHash) {
+  return prisma.user.create({
+    data: {
+      username,
+      email,
+      passwordHash
+    }
+  });
+}
+
+export async function getUserByEmail(email) {
+  return prisma.user.findUnique({
+    where: {
+      email
     }
   });
 }
